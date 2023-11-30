@@ -35,13 +35,14 @@ pipeline {
 
             }
         }
-        post {
+        
+    }
+    post {
         failure {
             emailext body: 'Ce Build $BUILD_NUMBER a échoué',
             recipientProviders: [requestor()],
             subject: 'Build',
             to: 'adresse_email_destinataire@exemple.com'
         }
-    }
     }
 }
